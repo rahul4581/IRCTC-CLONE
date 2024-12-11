@@ -1,0 +1,334 @@
+<html>
+<head><title>irctc.ticketbooking</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .jpg2{
+            padding-left: 150px;
+            padding-top: 30px;
+        }
+        .container1{
+            display:flex;
+            gap:95px;
+            position: sticky;
+            top:0;
+            background-color: white;
+        }
+        .home{
+            background-image: url("data:image/png;base64,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");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height:20px;
+            width:20px;
+        }   
+        .img1{
+            height: 130px;
+            width:130x;
+        }
+        .img3{
+            height:10px;
+            width:10px;
+        }
+        .navbar{
+            padding-top: 20px;
+            
+        }
+        .navbar a{
+            padding:10px 5px;
+            text-allign:center;
+            text-size:15px;
+            color: black;
+            text-decoration-line: none;
+            
+        }
+        .navbar a.first{
+            background-color: blue;
+            color:aliceblue;
+        }
+        .navbar a:hover{
+            background-color:  rgb(224, 226, 226);
+        }
+        .navbar a.sec{
+            color:black ;
+            background-color: rgb(224, 226, 226);
+        }
+        .navbar a.third{
+            color: red;
+        }
+        .jpg2 img.img2{
+            height:80px;
+            width:80px;
+        }
+        .img3{
+            width:100%;
+            height:600px;
+        }
+        .tr1 td{
+            
+            width:300px;
+            text-align:center;
+            font-size:10px;
+            background-color:rgb(78, 69, 137);
+            color:aliceblue;
+            padding-top:5px;
+            padding-bottom:5px;
+        }
+        .tab2{
+            background:url("https://th.bing.com/th/id/OIP.oS0zvvQ-RXHaMd-l_SNWiwHaEK?rs=1&pid=ImgDetMain");
+            background-repeat:no-repeat;
+       
+            background-size:cover;
+        }
+        .tb1{
+            background-color: white;
+            margin-left: 50px;
+        }
+        .tb3{
+            margin-left: 50px;
+        }
+        .cont{
+            display: flex;
+            gap:80px;
+        }
+        .cont2{
+            display: flex;
+            gap:80px;
+        }
+        .sm{
+            background-color: rgb(67, 24, 106);
+            height:50px;
+        }
+        .container2{
+            display: inline-block;
+            background-color: rgb(67, 24, 106);
+        }
+        .but{
+            padding-top: 10px;
+            padding-bottom:10px;
+            background-color:  rgb(67, 24, 106);
+            color:white;
+            box-shadow: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container1"><a href="#image"><img class="img1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl2iqf5kIXOmP3rD_uSYsNHwTp1tbvEOsHnA&s"></img></a>
+        <div class="navbar">
+            <table >
+                <tr style="height:60px">  
+                    <td>
+                        <a class="first" href="#LOGIN">LOGIN</a>
+                        <a href="#REGISTER">REGISTER</a>
+                        <a href="#AGENT LOGIN">AGENT LOGIN</a>
+                        <a href="#CONTACT US" class="contact">CONTACT US</a>
+                        <a class="third" href="#ASK DISHA">ASK DISHA</a>
+                        <a href="#ALERTS" class="sec">ALERTS</a>
+                        <a href="#date" class="a1"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="home"> </button>
+                        <a href="#HOME" class="home"></a>
+                        <a href="#IRCTC EXCLUSIVE" class="first">IRCTC EXCLUSIVE</a>
+                        <a href="#TRAINS" class="sec" id="trains">TRAINS</a>
+                        <a href="#BUSES">BUSES</a>
+                        <a href="#FLIGHTS">FLIGHTS</a>
+                        <a href="#HOTELS">HOTELS</a>
+                        <a href="">LOYALITY</a>
+                        <a href="">MEALS</a>
+                        <a href="">PROMOTIONS</a>
+                        <a href="">MORE</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div class="jpg2"><img class="img2" src="data:image/jpeg;base64,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"></div>
+    </div>
+    <table style="width:100%"class="tab2">
+       <tr>
+           <td >
+               <div class="div1">
+                   <br><br><br><br><br>
+                   <table class="tb1">
+                       <tr class="tr1">
+                           <td>PNR STATUS</td>
+                           <td>CHARTS/VACANCY</td>
+                       </tr>
+                       <tr class="tr2">
+                           <td colspan="2">
+                               <p>
+                               <h2 style="text-align: center;">BOOK TICKET</h2>
+                               
+                               <div>
+                                   <table>
+                                       <tr>
+                                           <td><label for="from">From</label><input style="width:250px" type="text" name="from" id="from>"></td>
+                                           <td style="padding-left:80px;"><label for="date"><Date/label><input style="width:150px;height:25px"type="date" name="date" id="date"></td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-left: 22px;padding-top: 15px;"><label for="to">To</label><input style="width:250px ;" type="text" name="to" id="to"></td>
+                                           <td  style="padding-left: 80px;padding-top: 15px;"><select name="class" id="class" >
+                                               <option value="All Classes">All Classes</option>
+                                               <option  value="Anubhuti Class (EA)">Anubhuti Class (EA)</option>
+                                               <option value="AC First Class (1A)">AC First Class (1A)</option>
+                                               <option value="Vistadome AC (EV)">Vistadome AC (EV)</option>
+                                               <option value="Exec Chair Car (EC)">Exex Chair Car (EC)</option>
+                                               <option value="AC 3 Tier (3A)">AC 3 Tier (3A)</option>
+                                               <option value="AC 3 Economy (3E)">AC 3 Economy (3E)</option>
+                                               <option value="Sleeper (SL)">Sleeper (SL)  </option>
+                                               <option value="Second Sitting (2S)">Second Sitting (2S)</option>
+                                           </select></td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-top: 15px; padding-left:25px;">
+                                               <select  style=" width:260px ;height:25px" name="type" id="type" class="type">
+                                                   <option value="GENERAL">GENERAL</option>
+                                                   <option value="LADIES">LADIES</option>
+                                                   <option value="LOWER BERTHSIR CITIZEN">LOWER BEHRTHSIR CITIZEN</option>
+                                                   <option value="PERSON WITH DISABILITY">PERSON WITH DISABILITY</option>
+                                                   <option value="TATKAL">TATKAL</option>
+                                                   <option value="PREMIUM TATKAL">PREMIUM TATKAL</option>
+                                               </select>
+                                           </td>
+               
+                                       </tr>
+                                   </table>
+                               
+                               <br>
+                               <div>
+                                   <input  type="checkbox" name="check1" id="check1"><label for="check1">Person With Disability Concession   </label>
+                                   <input  type="checkbox" name="check2" id="check2"><label for="check2">Flexible With Date</label>
+                                   <input type="checkbox" name="check3" id="check3"><label for="check3">Train With Avaliable Berth</label>
+                               </div>
+                               <br>
+                               <input type="checkbox" name="check3" id="check3"><label for="check3">Railway Pass Concession</label>
+                               <br>
+                               <br>
+                               <div>
+                                   <table>
+                                       <tr>
+                                           <td>
+                                               <input type="button" value="Search" style="background-color: rgb(246, 148, 20); color: white; text-align: center; width:120px; font-size:14px;padding:5px 5px">
+                                           </td>
+                                           <td style="padding-left: 200px;">
+                                               <input  type="button" value="Try booking in Ask DISHA 2.0" style="background-color: rgb(9, 178, 9); font-size: 14px; text-align: center;width:220px; color:white;padding:8px 5px">
+                                           </td>
+                                       </tr>
+                                   </table>
+                               </div>
+                           </td>    
+                       </tr>       
+                   </table>
+               </div>   
+           </td>     
+
+      </tr>
+      <tr>
+       <td>
+           <div>
+               <table style="width:610px; height:80px;background-color: white; margin-left: 50px;">
+                   <tr>
+                       <td style="text-align: center;" ><a style="color:rgb(82, 68, 228)"href="">Please click here for impanelment for PAD items for Catering</a>
+                       </td>
+                   </tr>
+                  
+               </table>
+           </div>
+       </td>
+      </tr>
+      <tr><td><br><br></td></tr>
+   </table>
+   <br><br><hr>
+   <h1 style="text-align: center;">HOLIDAYS</h1>
+   <br>
+   <div class="cont">
+       <div style="width:350px ;background-color: rgb(246, 242, 236); margin-left: 200px;">
+           <img src="https://blog.the-maharajas.com/wp-content/uploads/2022/12/worlds-best-luxury-train.jpg" style="width:350px;height: 300px;">
+           <h2 style="text-align: center;">Maharaja's Express</h2>
+           <p style="margin-left: 10px;margin-right: 10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+               Redefining Royalty, Luxury and Comfort, Maharajas' express takes you on a sojourn to the era of bygone stately splendour of princely states. Sylvan furnishings, elegant ambience and modern amenities are amalgamated for an “Experience Unsurpassed”. It has been a winner of “World’s Leading Luxury train” by World Travel Awards consecutively for last six years.
+               <br>
+               <a href="https://www.the-maharajas.com/">Read More</a><br><br>
+           </p>
+       </div>
+       <div style="width:350px ;background-color: rgb(246, 242, 236); ">
+               <img src="https://www.irctc.co.in/nget/assets/images/Thailand.jpg" style="width:350px;height: 300px;">
+               <h2 style="text-align: center;">International Packages</h2>
+               <p style="margin-left: 10px;margin-right: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                   Best deals in International Holiday packages, handpicked by IRCTC, for Thailand, Dubai, Sri Lanka, Hong Kong, China, Macau, Bhutan, Nepal, U.K., Europe, USA, Australia etc. The packages are inclusive of sightseeing, meals, visa charges and overseas medical insurance to give you a hassle-free and memorable experience.
+                   <br><br>
+                   <a href="https://www.irctctourism.com/">Read More</a><br><br>
+               </p>
+       </div>
+       <div style="width:350px ;background-color: rgb(246, 242, 236); ">
+           <img src="https://www.irctc.co.in/nget/assets/images/Thailand.jpg" style="width:350px;height: 300px;">
+           <h2 style="text-align: center;">Domestic Air Packages</h2>
+           <p style="margin-left: 10px;margin-right: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
+               Be it the spiritual devotee seeking blessings of Tirupati, Shirdi or Mata Vaishno Devi or the leisure traveller wanting to relish the Blue mountains of North East, Sand-dunes of Rajasthan, Hamlets of Ladakh, Wonders of Himalayas, Serene lakes or Picturesque Islands, IRCTC has it all. Discover India through IRCTC!
+               <br><br>
+               <a href="https://www.irctctourism.com/">Read More</a>
+
+           </p>
+
+       </div>
+   </div>
+   <br>
+    <div class="cont2">
+       <div style="width:350px ;background-color: rgb(246, 242, 236); margin-left: 200px;">
+               <img src="https://www.irctc.co.in/nget/assets/images/Bharat_Gaurav.jpg" style="width:350px;height: 300px;">
+               <h2 style="text-align: center;">Bharat Gourav Tourist Train</h2>
+               <p style="margin-left: 10px;margin-right: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
+                   IRCTC operates Bharat Gaurav Tourist Train having AC III-Tier accommodation on train specially designed to promote domestic tourism in India. This train runs on various theme based circuits covering pilgrimage and heritage destinations in its itinerary on a 5 days to 20 days trip and showcase India’s rich cultural heritage.
+                   <a href="https://www.irctctourism.com/bharatgaurav">Read More</a>
+               </p>
+       </div>
+       <div style="width:350px ;background-color: rgb(246, 242, 236); ">
+           <img src="https://www.irctc.co.in/nget/assets/images/Manali.jpg" style="width:350px;height: 300px;">
+           <h2 style="text-align: center;">Rail Tour Packages</h2>
+           <p style="margin-left: 10px;margin-right: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
+               IRCTC offers Exclusive Rail tour packages with confirmed train tickets, sight-seeing and meals for enchanting Nilgiri Mountains, Darjeeling, Kullu Manali, Kashmir, Gangtok or divine tours of Mata Vaishno Devi, Rameswaram, Madurai, Shirdi, Tirupati etc. Holiday packages/ Land packages to these destinations are also available.
+               <br>
+               <a href="https://www.irctctourism.com/">Read More</a><br>
+           </p>
+       </div>
+   
+    </div>
+    <br>
+    <div class="sm">
+        <p style="font-size: 15px; color: white; padding-top:15px ;padding-left:300px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Get connected with us on social media
+        </p><hr>
+    </div>
+    <div class="container2"  style="width:100%">
+        <br><br>
+        <table style="padding-left: 300px;">
+            <tr>
+                <td style="width:250px"><button class="but" >IRCTC Trains</button><div class="dd1"></div></td>
+                <td style="width:250px"><button class="but 2" >How To</button></td>
+                <td style="width:250px"><button class="but 3">IRCTC eWallet</button></td>
+                <td style="width:250px"><button class="but 4">For Newly Migrated Agents</button></td>
+            </tr>
+            <tr>
+                <td><button class="but 5">General Information</button></td>
+                <td><button class="but 6">IRCTC Official App</button></td>
+                <td><button class="but 7">IRCTC Loyality Program</button></td>
+                <td><button class="but 8">Mobile Zone</button></td>
+            </tr>
+            <tr>
+                <td><button class="but 9">Important Information</button></td>
+                <td><button class="but 10">Advertise with us</button></td>
+                <td><button class="but 11">IRCTC-iPAY Payment Gateway</button></td>
+                <td><button class="but 12">Polices</button></td>
+            </tr>
+            <tr>
+                <td><button class="but 13">Agents</button></td>
+                <td><button class="but 14">refund Rules</button></td>
+                <td><button class="but 15">IRCTC Zone</button></td>
+                <td><button class="but 16">Ask Disha ChatBot</button></td>
+            </tr>
+        </table><br><br>
+    </div>
+    <script src="one.js"></script>
+</body>    
+</html>
